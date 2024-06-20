@@ -141,7 +141,7 @@
             nav {
                 display: none;
                 position: absolute;
-                top: 60px;
+                top: 125px;
                 left: 0;
                 width: 100%;
                 background-color: #333;
@@ -152,14 +152,17 @@
                 flex-direction: column;
             }
             .menu-icon {
+                background-color: #555;
                 display: block;
                 position: absolute;
-                top: 10px;
-                right: 10px;
+                top: 80px;
+                text-align: right;
+                padding-left: 90%;
+                padding-right: 10%;
                 color: #fff;
-                font-size: 20px;
+                font-size: 30px;
                 cursor: pointer;
-                border: 1px solid #f0f0f0;
+                
             }
             .menu-icon:hover {
                 color: #ccc;
@@ -192,7 +195,9 @@
         <a href="notice">Notice</a>
         <a href="Incoming">Incoming</a>
     </nav>
-    <span class="menu-icon" onclick="toggleMenu()">☰</span>
+    
+        <span class="menu-icon" onclick="toggleMenu()">☰</span>
+    
     <div id="sperator"><h3>Office Update</h3></div>
 
     <main>
