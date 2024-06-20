@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="mcro_LOGOs.ico" type="image/x-icon">
+    <!--
+        Todo para kpaga hihiwalayin yung css
+    <link rel="stylesheet" href="styles.css"> -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Municipal Civil Registrar</title>
+    <style>
+        /* Basic CSS Reset */
+        body, h1, h2, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh; /* Ensure the body stretches to at least the height of the viewport */
+            position: relative; /* Needed for the footer to work properly */
+            background-color: #f0f0f0;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+       /* Header Styles */
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: relative; /* Add this to make position adjustments */
+        }
+
+        header img {
+            max-width: 50%; /* Adjusts the width of the image to fit its container */
+            height: auto;
+        }
+        header h1 {
+            font-family: serif;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+        /* Navigation Styles */
+        nav {
+            background-color: #333;
+            text-align: center;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+            display: block;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .menu-icon {
+            display: none;
+        }
+        nav .active{
+            background-color: #555;
+        }
+        /* Main Content Styles */
+        main {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        #sperator h3{
+            font-size: 40px;
+            text-align: center;
+            border-bottom: 1px solid #b1b1b1;
+        }        
+        .out-of-town_article {
+            /* background-image: url(psa.png);
+            background-position: right;
+            background-size: 30%;
+            background-repeat: no-repeat;*/
+            text-decoration: none;
+            padding: 15px;
+            color: #000;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            width: 50%; /* Adjusted for desktop layout */
+            border-radius: 10px;
+            border-top: 20px solid #168200;
+        }
+        .out-of-town_article h1{
+            text-align: center;
+            color:#fff;
+            background-color: #000;
+        }
+        .petition_article {
+            /* background-image: url(psa.png);
+            background-position: right;
+            background-size: 30%;
+            background-repeat: no-repeat;*/
+            text-decoration: none;
+            padding: 15px;
+            color: #000;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            width: 50%; /* Adjusted for desktop layout */
+            border-radius: 10px;
+            border-top: 20px solid #deee00;
+        }
+        .petition_article h1{
+            text-align: center;
+            color:#fff;
+            background-color: #000;
+        }
+        .pbrap_article {
+            /* background-image: url(psa.png);
+            background-position: right;
+            background-size: 30%;
+            background-repeat: no-repeat;*/
+            text-decoration: none;
+            padding: 15px;
+            color: #000;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            width: 50%; /* Adjusted for desktop layout */
+            border-radius: 10px;
+            border-top: 20px solid #0004ee;
+        }
+        .pbrap_article h1{
+            text-align: center;
+            color:#fff;
+            background-color: #000;
+        }
+        
+        
+        
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            top: 100%;
+            position: sticky;
+            width: 100%;
+        }
+        #cnt{
+            margin: auto;
+            width: 50%;
+            padding: 5px;
+            border-bottom: 1px solid #b1b1b1;
+        }
+        @media only screen and (max-width: 768px) {
+            /* Adjustments for tablets */
+            header {
+                background-color: #000;
+                color: #fff;
+                padding: 20px 0;
+                text-align: center;
+                position: relative; /* Add this to make position adjustments */
+            }
+            nav {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #333;
+                overflow: hidden;
+            }
+            nav.active {
+                display: flex;
+                flex-direction: column;
+            }
+            .menu-icon {
+                display: block;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                color: #fff;
+                font-size: 20px;
+                cursor: pointer;
+            }
+            .menu-icon:hover {
+                color: #ccc;
+            }
+            nav a {
+                padding: 10px 0;
+            }
+            header img {
+                max-width: 80%; /* Adjust the width as per your design preference */
+                height: auto;
+            }
+            
+            main {
+                padding: 10px;
+            }
+            #sperator h3{
+                font-size: 30px;
+            }
+            .out-of-town_article {
+                width: 100%;
+            }
+            .petition_article {
+                width: 100%;
+            }
+            .pbrap_article {
+                width: 100%;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/"><img src="resources/mcro inv.png" alt="mcro_LOGOs"></a>
+    </header>
+    <nav id="navbar">
+        <a href="/">Home</a>
+        <a href="activities">Activities</a>
+        <a href="schedule">Schedules</a>
+        <!--<a href="#">Guide</a>---> 
+        <a href="notice">Notice</a>
+        <a href="Incoming">Incoming</a>
+    </nav>
+    <span class="menu-icon" onclick="toggleMenu()">☰</span>
+    <div id="sperator"><h3>Incoming Documents</h3></div>
+    <main>
+        <!--Todo start with the latest-->
+
+         <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>PETITION</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COM: FRANCISCO JR. FERMO GABITO</h3>
+        <!--Todo From Here-->
+        <p><b> </b></p>
+        <!--Todo Info Here-->
+        <p><b</b></p>
+        <p><b>Date: </b>June 18, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+        <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>PETITION</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COM: ERBER DAR</h3>
+        <!--Todo From Here-->
+        <p><b> </b></p>
+        <!--Todo Info Here-->
+        <p><b>PEITTIONER: </b>BENITUR MARTOS OLNA</p>
+        <p><b>Date: </b>June 18, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+        <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>PETITION</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COM: RENATO SUASING</h3>
+        <!--Todo From Here-->
+        <p><b> </b></p>
+        <!--Todo Info Here-->
+        <p><b>PEITTIONER: </b>LEONIDA ESCARTIN SUASING</p>
+        <p><b>Date: </b>June 18, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+         <!--! Copy start here-->
+    <article class="out-of-town_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>OUT-OF-TOWN</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: THELMA ENGLES ALLANGAN</h3>
+        <!--Todo From Here-->
+        <p><b> </b></p>
+        <!--Todo Info Here-->
+        <p><b>FROM: </b>DINALUNGAN, AURORA</p>
+        <p><b>Date: </b>May 31, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+         <!--! Copy start here-->
+    <article class="out-of-town_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>OUT-OF-TOWN</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: EMMANUEL BANAWAN BOBIS</h3>
+        <!--Todo From Here-->
+        <p><b> </b></p>
+        <!--Todo Info Here-->
+        <p><b>FROM: </b>RODRIGUEZ, RIZAL</p>
+        <p><b>Date: </b>May 31, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+        
+        <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>PETITION</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COM: BRADLEY BACERDO BAJAS</h3>
+        <!--Todo From Here-->
+        <p><b> </b></p>
+        <!--Todo Info Here-->
+        <p><b>PEITTIONER: </b>VANESSA MAE TALENTO TIERRA-BAJAS</p>
+        <p><b>Date: </b>May 23, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+         <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>PETITION</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COM: ROBERTO ANDES LLAMES</h3>
+        <!--Todo From Here-->
+        <p><b> </b></p>
+        <!--Todo Info Here-->
+        <p><b>PEITTIONER: </b>MERCY ARCHIVIDO ROLL LLAMES</p>
+        <p><b>Date: </b>May 23, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+         <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>PETITION</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: MICHELLE DONATO ALMAZAN</h3>
+        <!--Todo From Here-->
+        <p><b> </b></p>
+        <!--Todo Info Here-->
+        <p><b>PEITTIONER: </b>NORMILITA DONATO ALMAZAN</p>
+        <p><b>Date: </b>May 23, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+         <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>PETITION</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: ANGELO PALERMO</h3>
+        <!--Todo From Here-->
+        <p><b> </b></p>
+        <!--Todo Info Here-->
+        <p><b>PEITTIONER: </b>YOLAND SERDINA PALERMO-DELOS SANTOS</p>
+        <p><b>Date: </b>May 23, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+        <!--! Copy start here-->
+    <article class="out-of-town_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>OUT-OF-TOWN</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: MARY JANE GOTEZA GIBAGA</h3>
+        <!--Todo From Here-->
+        <p><b>FROM: </b>DINGALAN, AURORA</p>
+        <!--Todo Info Here-->
+        <p></p>
+        <p><b>Date: </b>May 7, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+        <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>PBRAP BENEFICIARIES (SECPA)</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>CRISJANE ALMAZAN LACNO</h3>
+            <h3>MELINDA GRAVADOR PARALE</h3>
+            <h3>MJ ALMAZAN LACNO</h3>
+            <h3>RISA JOY LOPEZ ARAGON-(8071)</h3>
+            <h3>TIMOTEO JR. MANJARES CANALES</h3>
+        <!--Todo From Here-->
+        <p><b>FROM: </b>PSA</p>
+        <!--Todo Info Here-->
+        <p></p>
+        <p><b>Date: </b>May 3, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+         <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1></h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: JUANITA CRIBE TENORIO</h3>
+        <!--Todo From Here-->
+        <p><b>FROM: </b>DEL GALLEGO, CAMARINES SUR</p>
+        <!--Todo Info Here-->
+        <p></p>
+        <p><b>Date: </b>April 29, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+        <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>PEITION</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: ESTRELLA A. ASIS</h3>
+        <!--Todo From Here-->
+        <p><b> </b></p>
+        <!--Todo Info Here-->
+        <p></p>
+        <p><b>Date: </b>April 29, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+        <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>PEITION</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: GRACE JERESANO GARLAN-SARMIENTO</h3>
+        <!--Todo From Here-->
+        <p><b> </b></p>
+        <!--Todo Info Here-->
+        <p></p>
+        <p><b>Date: </b>April 29, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+         <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>MIGRANT PEITION</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: ROSEMARIE V. NUÑEZ</h3>
+        <!--Todo From Here-->
+        <p><b>FROM: </b>INDANG, CAVITE</p>
+        <!--Todo Info Here-->
+        <p></p>
+        <p><b>Date: </b>April 22, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+        <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>MIGRANT PEITION</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: JESSIE CALUSTRE RUADIL</h3>
+        <!--Todo From Here-->
+        <p><b></b></p>
+        <!--Todo Info Here-->
+        <p></p>
+        <p><b>Date: </b>April 22, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+        <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>PETITION</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: SUZIL TABIRAO CALDIT</h3>
+        <!--Todo From Here-->
+        <p><b></b></p>
+        <!--Todo Info Here-->
+        <p></p>
+        <p><b>Date: </b>April 22, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+         <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>PETITION</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: BENJAMIN EDUARTE BELLEN</h3>
+        <!--Todo From Here-->
+        <p><b></b></p>
+        <!--Todo Info Here-->
+        <p></p>
+        <p><b>Date: </b>April 22, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+        <!--! Copy start here-->
+    <article class="pbrap_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>OUT-OF-TOWN</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>PBRAP: BEATRIZ VELASCO GALLIGUEZ</h3>
+        <!--Todo From Here-->
+        <p><b>FROM: </b>SAN ISIDRO, ISABELA</p>
+        <!--Todo Info Here-->
+        <p></p>
+        <p><b>Date: </b>April 19, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+        <!--! Copy start here-->
+    <article class="pbrap_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>OUT-OF-TOWN</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>PBRAP: MAURA ENCISO JESMO</h3>
+        <!--Todo From Here-->
+        <p><b>FROM: </b>GENERAL NAKAR, QUEZON CITY</p>
+        <!--Todo Info Here-->
+        <p></p>
+        <p><b>Date: </b>April 19, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+         <!--! Copy start here-->
+    <article class="pbrap_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>OUT-OF-TOWN</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>PBRAP: ROMEO BASE SARTE</h3>
+        <!--Todo From Here-->
+        <p><b>FROM: </b>LANAO, DEL SUR</p>
+        <!--Todo Info Here-->
+        <p></p>
+        <p><b>Date: </b>April 19, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+        <!--! Copy start here-->
+    <article class="pbrap_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>OUT-OF-TOWN</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>PBRAP: WENEFREDA DESA CORTEZ</h3>
+        <!--Todo From Here-->
+        <p><b>FROM: </b>SAN JOSE, CAMARINES SUR</p>
+        <!--Todo Info Here-->
+        <p></p>
+        <p><b>Date: </b>April 19, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+        <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>PETITION</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>CARMENCITA C. DIZON</h3>
+        <!--Todo From Here-->
+        <p><b>FROM: </b>REGIONAL TRAIL COURT 5TH JUDICIAL REGION</p>
+        <!--Todo Info Here-->
+        <p>Versus the Registrar of Labo, Camarines Note</p>
+        <p><b>Date: </b>April 11, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+        <!--! Copy start here-->
+    <article class="out-of-town_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>OUT-OF-TOWN</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: ERNESTO DAZO BITARA</h3>
+        <!--Todo From Here-->
+        <p><b>FROM: </b>Bulan, Sorsogon</p>
+        <!--Todo Info Here-->
+        <p>Delayed Registration</p>
+        <p><b>Date: </b>February 23, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+        
+         <!--! Copy start here-->
+    <article class="out-of-town_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>OUT-OF-TOWN</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: MS. LORNA SAMBAHON MIRASOL</h3>
+        <!--Todo From Here-->
+        <p><b>FROM: </b>LUPI, CAMARINES NORTE</p>
+        <!--Todo Info Here-->
+        <p>Delayed Registration</p>
+        <p><b>Date: </b>February 20, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+        <!--! Copy start here-->
+    <article class="out-of-town_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>OUT-OF-TOWN</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: CAROLINA M. GARAIS</h3>
+        <!--Todo From Here-->
+        <p><b>FROM: </b>QUEZON CITY, METRO MANILA</p>
+        <!--Todo Info Here-->
+        <p>Delayed Registration</p>
+        <p><b>Date: </b>January 24, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+        <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>PETITION</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: MADONNA BRUZO BELANDO-ARCHIVIDO</h3>
+        <!--Todo From Here-->
+        
+        <!--Todo Info Here-->
+
+        <p><b>Date: </b>January 11, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+        <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>PETITION</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: RUTH CAMILO ROMAY-BALCE</h3>
+        <!--Todo From Here-->
+        
+        <!--Todo Info Here-->
+
+        <p><b>Date: </b>January 11, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+         <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>PETITION</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: NOLY VALENZUELA MANRIQUE-MISTANZA</h3>
+        <!--Todo From Here-->
+        
+        <!--Todo Info Here-->
+
+        <p><b>Date: </b>January 11, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+         <!--! Copy start here-->
+    <article class="out-of-town_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>OUT-OF-TOWN</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: LEOPOLDO MAÑAGO TANTICO</h3>
+        <!--Todo From Here-->
+        <p><b>FROM: </b>Bagiuo to Capalongay</p>
+        <!--Todo Info Here-->
+            <p><b>Status: </b> AFFIRMED</p>
+        <p><b>Date: </b>January 09, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+        <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>PETITION</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: BELHA TALENTO VENIDA-MADERA</h3>
+        <!--Todo From Here-->
+
+        <!--Todo Info Here-->
+        <p><b>Status: </b>AFFIRMED</p>
+        <p><b>Date: </b>January 04, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+        <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>PETITION</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: EDWIN ILUSTRE JUEVES</h3>
+        <!--Todo From Here-->
+
+        <!--Todo Info Here-->
+        <p><b>Status: </b>AFFIRMED</p>
+        <p><b>Date: </b>January 04, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+
+        <!--! Copy start here-->
+    <article class="petition_article">
+        <Div class="title">
+        <!--Todo Title here-->
+            <h1>PETITION</h1>
+        </Div>
+         <!--Todo Name here-->
+            <h3>COLB: LEAH MAE ESPERIDA ALANO</h3>
+        <!--Todo From Here-->
+
+        <!--Todo Info Here-->
+        <p><b>Status: </b>IMPUGNED</p>
+        <p><b>Date: </b>January 04, 2024</p>
+    </article>
+        <!--Todo End Copy here-->
+    </main>
+
+    <footer>
+        <div class="rcrd" >
+            <div id="cnt">
+                <p>Record Count for the month <b>May</b> 2024</p>
+            </div>
+            <p>Birth: <b>225</b> Marriage: <b>20</b> Death: <b>71</b></p>
+        </div>
+        <br> 
+            <!--<p>Itong website na ito ay buwanang nag-uupdate </p>
+            <p>Pero kung merong mga biglaang announcement o balita ito na pinopost sa itaas </p>-->
+        <br>
+            <p>Website Visitor Count: <span id="visitorCount">0</span></p>
+        <br>
+            <p>&copy; 2024 Municipal Civil Registrar</p>
+    </footer>
+    <script>
+    
+        
+    // Your JavaScript code here
+            //for the mobile nav bar
+        function toggleMenu() {
+            var navbar = document.getElementById("navbar");
+            navbar.classList.toggle("active");
+        }
+        
+            //for the website counter
+        function incrementVisitorCount() {
+            let count = localStorage.getItem('visitorCount');
+            count = parseInt(count) || 0;
+            count++;
+            localStorage.setItem('visitorCount', count);
+            document.getElementById('visitorCount').textContent = count;
+        }
+        
+        window.onload = function() {
+            incrementVisitorCount();
+        };
+
+    </script>
+</body>
+</html>

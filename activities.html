@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="resources/mcro_LOGOs.ico" type="image/x-icon">
+    <!--
+        Todo para kpaga hihiwalayin yung css
+    <link rel="stylesheet" href="styles.css"> -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Municipal Civil Registrar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Basic CSS Reset */
+        body, h1, h2, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh; /* Ensure the body stretches to at least the height of the viewport */
+            position: relative; /* Needed for the footer to work properly */
+            background-color: #f0f0f0;
+            line-height: 1.6;
+        }
+        /* Header Styles */
+       /* Header Styles */
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: relative; /* Add this to make position adjustments */
+        }
+
+        header img {
+            max-width: 50%; /* Adjusts the width of the image to fit its container */
+            height: auto;
+        }
+        header h1 {
+            font-family: serif;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+        /* Navigation Styles */
+        nav {
+            background-color: #333;
+            text-align: center;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+            display: block;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .menu-icon {
+            display: none;
+        }
+        /* Main Content Styles */
+        main {
+            justify-content: space-around;
+        }
+        
+        .gallery {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 5%; 
+        
+    }
+    .gallery .nested img{
+        max-width: 30%;
+        display: inline-flex;
+    }
+    .gallery .nested img:hover {
+    transform: scale(1.05);
+    }
+    .gallery li {
+        list-style: none;
+        margin-bottom: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .gallery .folder {
+        cursor: pointer;
+        font-weight: bold;
+        padding: 10px;
+        display: block;
+        color: #333;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+    .gallery .folder:hover {
+        background-color: #f0f0f0;
+    }
+    .gallery .nested {
+        display: none;
+        padding-left: 20px;
+    }
+    .gallery .nested.open {
+        display: block;
+    }
+    .icon {
+        margin-right: 5px;
+    }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            top: 100%;
+            position: sticky;
+            width: 100%;
+            
+        }
+        @media only screen and (max-width: 768px) 
+        {
+            /* Adjustments for tablets */
+            header {
+                background-color: #000;
+                color: #fff;
+                padding: 20px 0;
+                text-align: center;
+                position: relative; /* Add this to make position adjustments */
+            }
+            nav {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #333;
+                overflow: hidden;
+            }
+            nav.active {
+                display: flex;
+                flex-direction: column;
+            }
+            .menu-icon {
+                display: block;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                color: #fff;
+                font-size: 20px;
+                cursor: pointer;
+            }
+            .menu-icon:hover {
+                color: #ccc;
+            }
+            nav a {
+                padding: 10px 0;
+            }
+            header img {
+                max-width: 80%;; /* Adjust the width as per your design preference */
+                height: auto;
+            }
+            main {
+                padding: 10px;
+            }
+            .article {
+                width: 100%;
+            }
+            .gallery .nested img{
+                max-width: 90%;
+                display: inline-flex;
+            }
+        
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/"><img src="resources/mcro inv.png" alt="mcro_LOGOs"></a>
+    </header>
+    <nav id="navbar">
+        <a href="/">Home</a>
+        <a href="activities">Activities</a>
+        <a href="schedule">Schedules</a>
+        <!--<a href="#">Guide</a>---> 
+        <a href="notice">Notice</a>
+        <a href="Incoming">Incoming</a>
+    </nav>
+    <span class="menu-icon" onclick="toggleMenu()">☰</span>
+    <main>
+    <ul class="gallery">
+        <li>
+            <!--Todo Start Here-->
+            <a class="folder" href="#"><i class="fas fa-folder icon"></i>Mobile registration in Barangay</a>
+            <ul class="nested">
+                <li>
+                    <a class="folder" href="#"><i class="fas fa-folder icon"></i>Barangay Binawangan. April 4, 2024</a>
+                    <ul class="nested">
+                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay binawangan. April 4, 2024/9a089f74-48a7-4e01-a48d-9035b7c56028.jpg" alt="mcro_image">
+                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay binawangan. April 4, 2024/bad5b680-c40e-4bf5-abf0-12e666e77c37.jpg" alt="mcro_image">
+                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay binawangan. April 4, 2024/ed710449-fbdc-4335-930c-134a84b16e2f.jpg" alt="mcro_image">
+                    </ul>
+                </li>
+                <li>
+                    <a class="folder" href="#"><i class="fas fa-folder icon"></i>Barangay Del Pilar. February 20, 2024</a>
+                    <ul class="nested">
+                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay del Pilar. February 20, 2024/352de14f-f3dd-4864-9c00-0d11141f6a27.jpg" alt="mcro_image">
+                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay del Pilar. February 20, 2024/391706ef-db16-49f0-9665-b1a0ef51fe17.jpg" alt="mcro_image">
+                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay del Pilar. February 20, 2024/6367d342-960c-4f2b-a54d-292bb591f58c.jpg" alt="mcro_image">
+                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay del Pilar. February 20, 2024/dba455a3-a1db-4001-a384-80644cbae71d.jpg" alt="mcro_image">
+                    </ul>
+                </li>
+                <li>
+                    <a class="folder" href="#"><i class="fas fa-folder icon"></i>Barangay San Antonio. February 13, 2024</a>
+                    <ul class="nested">
+                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay San Antonio. February 13, 2024/3b7074f4-0ca3-4145-828c-5e1d0d7a1b54.jpg" alt="mcro_image">
+                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay San Antonio. February 13, 2024/e0728ef2-1f0c-409d-8444-5421958ffb88.jpg" alt="mcro_image">
+                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay San Antonio. February 13, 2024/ea91bd09-58f8-4ad4-b6da-2fe8211a7f91.jpg" alt="mcro_image">
+                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay San Antonio. February 13, 2024/eb6b8384-2f1b-48cf-9d06-5995fe8ed908.jpg" alt="mcro_image">
+                    </ul>
+                </li>
+                <li>
+                    <a class="folder" href="#"><i class="fas fa-folder icon"></i>Barangay Tanawan. May 28, 2024</a>
+                    <ul class="nested">
+                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/1b263d73-4c95-41b4-8bb1-0af6861fa0c1.jpg" alt="mcro_image">
+                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/2a55d898-4bd0-4df2-89c1-74bf7358cc58.jpg" alt="mcro_image">
+                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/2c68cc1b-fd29-4451-bd58-d831e342928d.jpg" alt="mcro_image">
+                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/02f939ea-f5d0-4baf-b1e8-d9b72102811b.jpg" alt="mcro_image">
+                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/4ab7c1c4-3c66-49ef-bf01-08321c7f13f6.jpg" alt="mcro_image">
+                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/4f02d110-b7ac-4bd0-8cb8-61d963d8b9d9.jpg" alt="mcro_image">
+                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/7eee4941-daf3-4bc8-97fd-4b572bc73b8c.jpg" alt="mcro_image">
+                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/11f08fde-20e3-47e1-a608-e9109475ac9c.jpg" alt="mcro_image">
+                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/86aa9541-c522-4559-82eb-45e38825f3b1.jpg" alt="mcro_image">
+                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/40287ce3-c409-4ef1-9964-84fb70b6e58d.jpg" alt="mcro_image">
+                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/a4f9cc04-c01e-4bb9-b0a7-c01da6526e56.jpg" alt="mcro_image">
+                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/f445f2d7-9c29-4b46-ade3-2c8022cf61c5.jpg" alt="mcro_image">
+                    </ul>
+            </ul>
+        </li>
+        <!--Todo End Here-->
+        <!--Todo Start Here-->
+        <li>
+            <a class="folder" href="#"><i class="fas fa-folder icon"></i>Pre Marriage Orientation in Barangay</a>
+            <ul class="nested">
+                <li>
+                    <a class="folder" href="#"><i class="fas fa-folder icon"></i>Barangay San Antonio. February 13, 2024</a>
+                    <ul class="nested">
+                        <img src="" alt="mcro_image">
+                        <img src="" alt="mcro_image">
+                        <img src="" alt="mcro_image">
+                        <img src="" alt="mcro_image">
+                    </ul>
+                </li>
+                <li>
+                    <a class="folder" href="#"><i class="fas fa-folder icon"></i>Barangay Tanawan. May 28, 2024</a>
+                    <ul class="nested">
+                        <img src="" alt="mcro_image">
+                        <img src="" alt="mcro_image">
+                        <img src="" alt="mcro_image">
+                        <img src="" alt="mcro_image">
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <!--Todo End Here-->
+</main>
+    <script>
+    
+    // Your JavaScript code here
+            //for the mobile nav bar
+        function toggleMenu() {
+            var navbar = document.getElementById("navbar");
+            navbar.classList.toggle("active");
+        }
+        
+            //for the website counter
+        function incrementVisitorCount() {
+            let count = localStorage.getItem('visitorCount');
+            count = parseInt(count) || 0;
+            count++;
+            localStorage.setItem('visitorCount', count);
+            document.getElementById('visitorCount').textContent = count;
+        }
+        
+        window.onload = function() {
+            incrementVisitorCount();
+        };
+
+        const folders = document.querySelectorAll('.folder');
+
+    folders.forEach(folder => {
+        folder.addEventListener('click', () => {
+            const nested = folder.nextElementSibling;
+            nested.classList.toggle('open');
+            const icon = folder.querySelector('.icon');
+            icon.classList.toggle('fa-folder');
+            icon.classList.toggle('fa-folder-open');
+        });
+    }
+    )
+        
+    </script>
+</body>
+<footer>
+    <div class="rcrd" >
+        <div id="cnt">
+            <p>Record Count for the month <b>May</b> 2024</p>
+        </div>
+        <p>Birth: <b>225</b> Marriage: <b>20</b> Death: <b>71</b></p>
+    </div>
+    <br> 
+        <!--<p>Itong website na ito ay buwanang nag-uupdate </p>
+        <p>Pero kung merong mga biglaang announcement o balita ito na pinopost sa itaas </p>-->
+    <br>
+        <p>Website Visitor Count: <span id="visitorCount">0</span></p>
+    <br>
+        <p>&copy; 2024 Municipal Civil Registrar</p>
+</footer>
+</html>

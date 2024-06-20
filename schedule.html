@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="mcro_LOGOs.ico" type="image/x-icon">
+    <!--
+        Todo para kpaga hihiwalayin yung css
+    <link rel="stylesheet" href="styles.css"> -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Municipal Civil Registrar</title>
+    <style>
+        /* Basic CSS Reset */
+        body, h1, h2, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh; /* Ensure the body stretches to at least the height of the viewport */
+            position: relative; /* Needed for the footer to work properly */
+            background-color: #f0f0f0;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+       /* Header Styles */
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: relative; /* Add this to make position adjustments */
+        }
+
+        header img {
+            max-width: 50%; /* Adjusts the width of the image to fit its container */
+            height: auto;
+        }
+        header h1 {
+            font-family: serif;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+        /* Navigation Styles */
+        nav {
+            background-color: #333;
+            text-align: center;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+            display: block;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .menu-icon {
+            display: none;
+        }
+        /* Main Content Styles */
+        main {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .event-container {
+        font-family: "Roboto", sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        }
+        .event-container h3.Month {
+        font-size: 40px;
+        text-align: center;
+        border-bottom: 1px solid #b1b1b1;
+        }
+        .event-container .event {
+        box-shadow: 0 4px 16px -8px rgba(0, 0, 0, 0.4);
+        display: flex;
+        border-radius: 8px;
+        margin: 32px 0;
+        }
+        .event .event-left {
+        background: #222;
+        min-width: 82px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #eee;
+        padding: 8px 48px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 8px 0 0 8px;
+        }
+        .event .event-left .date {
+        font-size: 56px;
+        }
+        .event .event-left .day {
+        font-size: 16px;
+        font-weight: normal;
+        }
+
+        .event .event-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 24px;
+        }
+        .event .event-right h3.event-title {
+        font-size: 24px;
+        margin: 24px 0 10px 0;
+        color: #218bbb;
+        text-transform: uppercase;
+        }
+
+        .event .event-right .event-timing {
+        background: #ffffff;
+        border-left:5px solid rgb(0, 0, 0) ;
+        border-right:5px solid rgb(0, 0, 0) ;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        padding: 8px;
+        border-radius: 16px;
+        margin: 24px 0;
+        font-size: 14px;
+        }
+        .event .event-right .event-timing img {
+        height: 20px;
+        padding-right: 8px;
+        }
+        #dtls a{
+            text-decoration: none;
+            color: #000;
+            padding: 5px;
+            border-style: solid;
+            border-color: #000;
+            border-width: 3px;
+            border-radius: 10px;
+        }
+
+        #dtls a:hover{
+            color: #e7e7e7;
+            background-color: #218bbb;
+            border-color: #218bbb;
+        }
+
+
+        
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            bottom: 0;
+            width: 100%;
+        }
+        @media only screen and (max-width: 768px) {
+            /* Adjustments for tablets */
+            header {
+                background-color: #000;
+                color: #fff;
+                padding: 20px 0;
+                text-align: center;
+                position: relative; /* Add this to make position adjustments */
+            }
+            nav {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #333;
+                overflow: hidden;
+            }
+            nav.active {
+                display: flex;
+                flex-direction: column;
+            }
+            .menu-icon {
+                display: block;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                color: #fff;
+                font-size: 20px;
+                cursor: pointer;
+            }
+            .menu-icon:hover {
+                color: #ccc;
+            }
+            nav a {
+                padding: 10px 0;
+            }
+            header img {
+                max-width: 80%;; /* Adjust the width as per your design preference */
+            height: auto;
+            }
+            main {
+                padding: 10px;
+            }
+            .event {
+                flex-direction: column;
+            }
+
+            .event .event-left {
+                padding: 0;
+                border-radius: 8px 8px 0 0;
+            }
+
+            .event .event-left .event-date .date,
+            .event .event-left .event-date .day {
+                display: inline-block;
+                font-size: 24px;
+            }
+
+            .event .event-left .event-date {
+                padding: 10px 0;
+            }
+            }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/"><img src="resources/mcro inv.png" alt="mcro_LOGOs"></a>
+    </header>
+    <nav id="navbar">
+        <a href="/">Home</a>
+        <a href="activities">Activities</a>
+        <a href="schedule">Schedules</a>
+        <!--<a href="#">Guide</a>---> 
+        <a href="notice">Notice</a>
+        <a href="Incoming">Incoming</a>
+    </nav>
+    <span class="menu-icon" onclick="toggleMenu()">☰</span>
+    
+    
+        
+        <main>
+            <div class="event-container">
+                <!--TODO MONTH-->
+        <h3 class="Month">JUNE</h3>
+         <!--TODO START HERE COPY-->
+         <div class="event">
+            <div class="event-left">
+                <div class="event-date">
+                    <!--TODO DATE-->
+                <div class="date">12</div>
+                    <!--TODO DAY-->
+                <div class="day">WEDNESDAY</div>
+                </div>
+            </div>
+                    <!--TODO TITLE-->
+            <div class="event-right">
+                <h3 class="event-title">126th Philippines Independence Day!</h3>
+                    <!--TODO DISCRIPTION-->
+                <div class="event-description">
+                Walang pasok sa anong mang tanggapan ng Gobreyno
+                </div>
+                    <!--TODO TIME-->
+                <div class="event-timing">
+                <img src="resources/time.png" alt="" /> 8:00 am
+                </div>
+            </div>
+            </div>
+            <!--TODO END COPY HERE-->
+            <!--TODO START HERE COPY-->
+            <div class="event">
+            <div class="event-left">
+                <div class="event-date">
+                    <!--TODO DATE-->
+                <div class="date">17</div>
+                    <!--TODO DAY-->
+                <div class="day">MONDAY</div>
+                </div>
+            </div>
+                    <!--TODO TITLE-->
+            <div class="event-right">
+                <h3 class="event-title">Mass Wedding</h3>
+                    <!--TODO DISCRIPTION-->
+                <div class="event-description">
+                Magkakaroon po ng Barangay Mass Wedding sa Baranagy San Antonio, Capalonga, Camarines Norte
+                </div>
+                    <!--TODO TIME-->
+                <div class="event-timing">
+                <img src="resources/time.png" alt="" /> 8:00 am
+                </div>
+            </div>
+            </div>
+            <!--TODO END COPY HERE-->
+            <!--TODO START HERE COPY-->
+        <div class="event">
+            <div class="event-left">
+                <div class="event-date">
+                    <!--TODO DATE-->
+                <div class="date">17</div>
+                    <!--TODO DAY-->
+                <div class="day">MONDAY</div>
+                </div>
+            </div>
+                    <!--TODO TITLE-->
+            <div class="event-right">
+                <h3 class="event-title">Eid’l Adha</h3>
+                    <!--TODO DISCRIPTION-->
+                <div class="event-description">
+                    PBBM declares June 17 a regular holiday to observe Eid’l Adha
+                    <br>
+                    <br>
+                    <div id="dtls"><a target="_blank" href="https://pco.gov.ph/news_releases/pbbm-declares-june-17-a-regular-holiday-to-observe-eidl-adha/"><em><b><u>Read more</u></b></em></a></div>
+                </div>
+                    <!--TODO TIME-->
+                <div class="event-timing">
+                <img src="resources/time.png" alt="" /> 
+                </div>
+            </div>
+            </div>
+                <!--TODO START HERE COPY-->
+        <div class="event">
+            <div class="event-left">
+                <div class="event-date">
+                    <!--TODO DATE-->
+                <div class="date">18</div>
+                    <!--TODO DAY-->
+                <div class="day">TUESDAY</div>
+                </div>
+            </div>
+                    <!--TODO TITLE-->
+            <div class="event-right">
+                <h3 class="event-title">Resume of Office</h3>
+                    <!--TODO DISCRIPTION-->
+                <div class="event-description">
+                Meron na pong Pasok sa lahat ng tanggapan ng Gobreyno
+                </div>
+                    <!--TODO TIME-->
+                <div class="event-timing">
+                <img src="resources/time.png" alt="" /> 8:00 am
+                </div>
+            </div>
+            </div>
+        </main>
+        
+    
+    <footer>
+        <div class="rcrd" >
+            <div id="cnt">
+                <p>Record Count for the month <b>May</b> 2024</p>
+            </div>
+            <p>Birth: <b>225</b> Marriage: <b>20</b> Death: <b>71</b></p>
+        </div>
+        <br> 
+            <!--p>Itong website na ito ay buwanang nag-uupdate </p>
+            <p>Pero kung merong mga biglaang announcement o balita ito na pinopost sa itaas </p>-->
+        <br>
+            <p>Website Visitor Count: <span id="visitorCount">0</span></p>
+        <br>
+            <p>&copy; 2024 Municipal Civil Registrar</p>
+    </footer>
+    <script>
+    
+        
+    // Your JavaScript code here
+            //for the mobile nav bar
+        function toggleMenu() {
+            var navbar = document.getElementById("navbar");
+            navbar.classList.toggle("active");
+        }
+        
+            //for the website counter
+        function incrementVisitorCount() {
+            let count = localStorage.getItem('visitorCount');
+            count = parseInt(count) || 0;
+            count++;
+            localStorage.setItem('visitorCount', count);
+            document.getElementById('visitorCount').textContent = count;
+        }
+        
+        window.onload = function() {
+            incrementVisitorCount();
+        };
+
+    </script>
+</body>
+</html>

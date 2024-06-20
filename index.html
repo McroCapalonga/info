@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="mcro_LOGOs.ico" type="image/x-icon">
+    <!--
+        Todo para kpaga hihiwalayin yung css
+    <link rel="stylesheet" href="styles.css"> -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Municipal Civil Registrar</title>
+    <style>
+        /* Basic CSS Reset */
+        body, h1, h2, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh; /* Ensure the body stretches to at least the height of the viewport */
+            position: relative; /* Needed for the footer to work properly */
+            background-color: #f0f0f0;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+       /* Header Styles */
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: relative; /* Add this to make position adjustments */
+        }
+
+        header img {
+            max-width: 50%; /* Adjusts the width of the image to fit its container */
+            height: auto;
+        }
+        header h1 {
+            font-family: serif;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+        /* Navigation Styles */
+        nav {
+            background-color: #333;
+            text-align: center;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+            display: block;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .menu-icon {
+            display: none;
+        }
+        nav .active{
+            background-color: #555;
+        }
+        /* Main Content Styles */
+        main {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        #sperator h3{
+            font-size: 40px;
+            text-align: center;
+            border-bottom: 1px solid #b1b1b1;
+        }
+        .article {
+            /* background-image: url(psa.png);
+            background-position: right;
+            background-size: 30%;
+            background-repeat: no-repeat;*/
+            text-decoration: none;
+            padding: 15px;
+            color: #000;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            width: 45%; /* Adjusted for desktop layout */
+        }
+        .article h2 {
+            color: #915ef8;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .article p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #333;
+        }
+        .article img {
+            float: right;
+            max-width: 30%;
+            height: auto;
+            display: block;
+            margin: 0 0 0 15px;
+            border-radius: 5px;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            bottom: 0;
+            width: 100%;
+        }
+        #cnt{
+            margin: auto;
+            width: 50%;
+            padding: 5px;
+            border-bottom: 1px solid #b1b1b1;
+        }
+        @media only screen and (max-width: 768px) {
+            /* Adjustments for tablets */
+            header {
+                background-color: #000;
+                color: #fff;
+                padding: 20px 0;
+                text-align: center;
+                position: relative; /* Add this to make position adjustments */
+            }
+            nav {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #333;
+                overflow: hidden;
+            }
+            nav.active {
+                display: flex;
+                flex-direction: column;
+            }
+            .menu-icon {
+                display: block;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                color: #fff;
+                font-size: 20px;
+                cursor: pointer;
+            }
+            .menu-icon:hover {
+                color: #ccc;
+            }
+            nav a {
+                padding: 10px 0;
+            }
+            header img {
+                max-width: 80%; /* Adjust the width as per your design preference */
+                height: auto;
+            }
+            main {
+                padding: 10px;
+            }
+            .article {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/"><img src="resources/mcro inv.png" alt="mcro_LOGOs"></a>
+    </header>
+    <nav id="navbar">
+        <a href="/">Home</a>
+        <a href="activities">Activities</a>
+        <a href="schedule">Schedules</a>
+        <!--<a href="#">Guide</a>---> 
+        <a href="notice">Notice</a>
+        <a href="Incoming">Incoming</a>
+    </nav>
+    <span class="menu-icon" onclick="toggleMenu()">☰</span>
+    <div id="sperator"><h3>Office Update</h3></div>
+
+    <main>
+       <!--<marquee width="100%" direction="left" height="40%">
+        This is a sample scrolling text that has scrolls texts to the left.
+        </marquee>--> 
+        
+        <article class="article">
+            <!--Todo PSA BATCH UPDATE-->
+            <h2>UPDATE PARA SA MGA NAGREQUEST NG PSA</h2>
+            <img src="resources/psa.png" alt="psalogo">
+            <p>Lahat po ng nagrequest ng PSA batch number 6 ay dumating na po, paki dala lang po ng claim stab kung nawala na po ang inyong claim stab yung mismong may ari po ang pupunta magdala lamang po ng I.D </p>
+            
+        </article>
+        <article class="article">
+            
+            <h2>Recent Activity of the Office</h2>
+            <img src="Barangay logo/San Roque.png" alt="mcro_image">
+            <p>Kasalang barangay sa brgy. San Antonio, Capalonga, Camarines Norte</p>
+            <br>
+            <br>
+            <div id="dtls"><a href="activities.html"><em><b><u>Visit here</u></b></em></a></div>
+            
+        </article>
+        <article class="article">
+            <h2>Municipality of Capalonga Update</h2>
+            <img src="Barangay logo/Capalonga Logo.png" alt="mcro_image">
+            <p>Para po sa mga nagtatanong kung ano po ang nagyayari sa bayan Capalonga</p>
+            <br>
+            <br>
+            <div id="dtls"><a target="_blank" href="https://web.facebook.com/newlgucapalonga"><em><b><u>Visit here</u></b></em></a></div>
+        </article>
+        
+        
+    </main>
+
+    <footer>
+        <div class="rcrd" >
+            <div id="cnt">
+                <p>Record Count for the month <b>May</b> 2024</p>
+            </div>
+            <p>Birth: <b>225</b> Marriage: <b>20</b> Death: <b>71</b></p>
+        </div>
+        <br> 
+            <!--<p>Itong website na ito ay buwanang nag-uupdate </p>
+            <p>Pero kung merong mga biglaang announcement o balita ito na pinopost sa itaas </p>-->
+        <br>
+            <p>Website Visitor Count: <span id="visitorCount">0</span></p>
+        <br>
+            <p>&copy; 2024 Municipal Civil Registrar</p>
+    </footer>
+    <script>
+    
+        
+    // Your JavaScript code here
+            //for the mobile nav bar
+        function toggleMenu() {
+            var navbar = document.getElementById("navbar");
+            navbar.classList.toggle("active");
+        }
+            //for the website counter
+            function incrementVisitorCount() {
+            let count = localStorage.getItem('visitorCount');
+            count = parseInt(count) || 0;
+            count++;
+            localStorage.setItem('visitorCount', count);
+            document.getElementById('visitorCount').textContent = count;
+        }
+        
+        window.onload = function() {
+            incrementVisitorCount();
+        };
+
+
+    </script>
+</body>
+</html>
