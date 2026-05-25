@@ -1,343 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="resources/mcro_LOGOs.ico" type="image/x-icon">
-    <!--
-        Todo para kpaga hihiwalayin yung css
-    <link rel="stylesheet" href="styles.css"> -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Activities — Municipal Civil Registrar</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0C2340; --gold: #B8891A; --gold-light: #F5E9C8;
+      --cream: #FAF7F2; --text: #1A1A1A; --muted: #5A5A5A; --border: rgba(0,0,0,0.1);
+    }
+    body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--text); -webkit-font-smoothing: antialiased; }
+    .site { max-width: 900px; margin: 0 auto; }
+    .header {
+      background: var(--navy); padding: 0 1.25rem;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 3px solid var(--gold); min-height: 64px;
+      position: relative; z-index: 100;
+    }
+    .header-brand { display: flex; align-items: center; gap: 10px; }
+    .header-logo {
+      width: 40px; height: 40px; background: white; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--navy);
+      flex-shrink: 0; overflow: hidden;
+    }
+    .header-logo img { width: 100%; height: 100%; object-fit: cover; }
+    .header-title { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 600; color: white; line-height: 1.25; }
+    .header-subtitle { font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 0.06em; text-transform: uppercase; }
+    .desktop-nav { display: flex; gap: 4px; }
+    .desktop-nav a {
+      color: rgba(255,255,255,0.75); text-decoration: none;
+      font-size: 13px; font-weight: 500; padding: 6px 10px; border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .desktop-nav a:hover { background: rgba(255,255,255,0.1); color: white; }
+    .desktop-nav a.active { color: var(--gold); }
+    .hamburger {
+      display: none; background: none; border: none; cursor: pointer;
+      color: white; font-size: 24px; padding: 4px; line-height: 1;
+    }
+    .mobile-nav {
+      display: none; flex-direction: column;
+      background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08);
+      position: absolute; top: 100%; left: 0; right: 0; z-index: 99;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      color: rgba(255,255,255,0.8); text-decoration: none;
+      font-size: 15px; font-weight: 500; padding: 15px 1.25rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .mobile-nav a.active { color: var(--gold); }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Municipal Civil Registrar</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        /* Basic CSS Reset */
-        body, h1, h2, p, ul, li {
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            min-height: 100vh; /* Ensure the body stretches to at least the height of the viewport */
-            position: relative; /* Needed for the footer to work properly */
-            background-color: #f0f0f0;
-            line-height: 1.6;
-        }
-        /* Header Styles */
-       /* Header Styles */
-        header {
-            background-color: #000;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            position: relative; /* Add this to make position adjustments */
-        }
+    .hero {
+      background: linear-gradient(135deg, #0C2340 60%, #163560);
+      padding: 1.75rem 1.25rem; border-bottom: 1px solid rgba(184,137,26,0.3);
+    }
+    .hero-label {
+      display: inline-block; background: rgba(184,137,26,0.2); color: var(--gold);
+      font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 3px 9px; border-radius: 4px; margin-bottom: 10px;
+      border: 1px solid rgba(184,137,26,0.3);
+    }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: 22px; color: white; line-height: 1.3; margin-bottom: 6px; }
+    .hero p { color: rgba(255,255,255,0.55); font-size: 13px; line-height: 1.6; }
 
-        header img {
-            max-width: 50%; /* Adjusts the width of the image to fit its container */
-            height: auto;
-        }
-        header h1 {
-            font-family: serif;
-            font-size: 24px;
-            margin-bottom: 5px;
-        }
-        header p {
-            font-size: 12px;
-            margin-bottom: 20px;
-        }
-        /* Navigation Styles */
-        nav {
-            background-color: #333;
-            text-align: center;
-            padding: 10px 0;
-            display: flex;
-            justify-content: center;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            transition: background-color 0.3s;
-            display: block;
-        }
-        nav a:hover {
-            background-color: #555;
-        }
-        .menu-icon {
-            display: none;
-        }
-        /* Main Content Styles */
-        main {
-            justify-content: space-around;
-        }
-        
-        .gallery {
-        list-style-type: none;
-        padding-left: 0;
-        margin: 5%; 
-        
+    .page-body { padding: 1.25rem; }
+    .section-label {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 1.1rem; display: flex; align-items: center; gap: 8px;
     }
-    .gallery .nested img{
-        max-width: 30%;
-        display: inline-flex;
-    }
-    .gallery .nested img:hover {
-    transform: scale(1.05);
-    }
-    .gallery li {
-        list-style: none;
-        margin-bottom: 10px;
-        background-color: #fff;
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    .gallery .folder {
-        cursor: pointer;
-        font-weight: bold;
-        padding: 10px;
-        display: block;
-        color: #333;
-        text-decoration: none;
-        transition: background-color 0.3s ease;
-    }
-    .gallery .folder:hover {
-        background-color: #f0f0f0;
-    }
-    .gallery .nested {
-        display: none;
-        padding-left: 20px;
-    }
-    .gallery .nested.open {
-        display: block;
-    }
-    .icon {
-        margin-right: 5px;
-    }
-        
-        /* Footer Styles */
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            top: 100%;
-            position: sticky;
-            width: 100%;
-            
-        }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--gold-light); }
 
-        #cnt{
-            margin: auto;
-            width: 50%;
-            padding: 5px;
-            border-bottom: 1px solid #b1b1b1;
-        }
-
-        @media only screen and (max-width: 768px) 
-        {
-            /* Adjustments for tablets */
-            header {
-                background-color: #000;
-                color: #fff;
-                padding: 20px 0;
-                text-align: center;
-                position: relative; /* Add this to make position adjustments */
-            }
-            nav {
-                display: none;
-                position: absolute;
-                top: 125px;
-                left: 0;
-                width: 100%;
-                background-color: #333;
-                overflow: hidden;
-            }
-            nav.active {
-                display: flex;
-                flex-direction: column;
-            }
-            .menu-icon {
-                background-color: #555;
-                display: block;
-                position: absolute;
-                top: 80px;
-                text-align: right;
-                padding-left: 90%;
-                padding-right: 3.5%;
-                color: #fff;
-                font-size: 30px;
-                cursor: pointer;
-                
-            }
-            .menu-icon:hover {
-                color: #ccc;
-            }
-            nav a {
-                padding: 10px 0;
-            }
-            header img {
-                max-width: 80%;; /* Adjust the width as per your design preference */
-                height: auto;
-            }
-            main {
-                padding: 10px;
-            }
-            .article {
-                width: 100%;
-            }
-            .gallery{
-                padding-top: 15%;
-            }
-
-            .gallery .nested img{
-                max-width: 90%;
-                display: inline-flex;
-            }
-        
+    .activity-group { margin-bottom: 2.25rem; }
+    .event-block { margin-bottom: 1.5rem; }
+    .event-header {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+      flex-wrap: wrap;
     }
-    </style>
+    .event-date-badge {
+      background: var(--navy); color: var(--gold);
+      font-size: 11px; font-weight: 500; padding: 4px 10px;
+      border-radius: 5px; white-space: nowrap; letter-spacing: 0.04em;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .event-title { font-size: 14px; font-weight: 500; color: var(--text); }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 6px;
+    }
+    .photo-grid img {
+      width: 100%; aspect-ratio: 4/3; object-fit: cover;
+      border-radius: 7px; border: 0.5px solid var(--border);
+      cursor: pointer; transition: opacity 0.15s;
+    }
+    .photo-grid img:hover { opacity: 0.85; }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.9); z-index: 999;
+      align-items: center; justify-content: center;
+      padding: 1rem;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 100%; max-height: 90vh; border-radius: 8px; object-fit: contain; }
+    .lightbox-close {
+      position: fixed; top: 1rem; right: 1rem;
+      background: white; border: none; border-radius: 50%;
+      width: 36px; height: 36px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; color: var(--navy);
+    }
+
+    .footer {
+      background: var(--navy); color: rgba(255,255,255,0.5);
+      font-size: 12px; text-align: center; line-height: 1.8;
+      padding: 1.25rem; border-top: 2px solid var(--gold);
+    }
+    .footer a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      .desktop-nav { display: none; }
+      .hamburger { display: block; }
+      .photo-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 641px) {
+      .hamburger { display: none; }
+      .mobile-nav { display: none !important; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <a href="index"><img src="resources/mcro inv.png" alt="mcro_LOGOs"></a>
-    </header>
-    <nav id="navbar">
-        <a href="index">Home</a>
-        <a href="activities">Activities</a>
-        <a href="schedule">Schedules</a>
-        <!--<a href="#">Guide</a>---> 
-        <a href="notice">Notice</a>
-        <a href="Incoming">Incoming</a>
+<div class="site">
+  <header class="header">
+    <div class="header-brand">
+      <div class="header-logo">
+        <img src="https://mcrocapalonga.github.io/info/resources/mcro inv.png" alt="MCRO Logo" onerror="this.style.display='none';this.parentNode.textContent='CR'" />
+      </div>
+      <div>
+        <div class="header-title">Municipal Civil Registrar</div>
+        <div class="header-subtitle">Capalonga, Camarines Norte</div>
+      </div>
+    </div>
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="activities.html" class="active">Activities</a>
+      <a href="schedule.html">Schedules</a>
+      <a href="notice.html">Notices</a>
     </nav>
-    <span class="menu-icon" onclick="toggleMenu()">☰</span>
-    <main>
-    <ul class="gallery">
-        <li>
-            <!--Todo Start Here-->
-            <a class="folder" href="#"><i class="fas fa-folder icon"></i>Mobile registration in Barangay</a>
-            <ul class="nested">
-                <li>
-                    <a class="folder" href="#"><i class="fas fa-folder icon"></i>Barangay Binawangan. April 4, 2024</a>
-                    <ul class="nested">
-                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay binawangan. April 4, 2024/9a089f74-48a7-4e01-a48d-9035b7c56028.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay binawangan. April 4, 2024/bad5b680-c40e-4bf5-abf0-12e666e77c37.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay binawangan. April 4, 2024/ed710449-fbdc-4335-930c-134a84b16e2f.jpg" alt="mcro_image">
-                    </ul>
-                </li>
-                <li>
-                    <a class="folder" href="#"><i class="fas fa-folder icon"></i>Barangay Del Pilar. February 20, 2024</a>
-                    <ul class="nested">
-                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay del Pilar. February 20, 2024/352de14f-f3dd-4864-9c00-0d11141f6a27.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay del Pilar. February 20, 2024/391706ef-db16-49f0-9665-b1a0ef51fe17.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay del Pilar. February 20, 2024/6367d342-960c-4f2b-a54d-292bb591f58c.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay del Pilar. February 20, 2024/dba455a3-a1db-4001-a384-80644cbae71d.jpg" alt="mcro_image">
-                    </ul>
-                </li>
-                <li>
-                    <a class="folder" href="#"><i class="fas fa-folder icon"></i>Barangay San Antonio. February 13, 2024</a>
-                    <ul class="nested">
-                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay San Antonio. February 13, 2024/3b7074f4-0ca3-4145-828c-5e1d0d7a1b54.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay San Antonio. February 13, 2024/e0728ef2-1f0c-409d-8444-5421958ffb88.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay San Antonio. February 13, 2024/ea91bd09-58f8-4ad4-b6da-2fe8211a7f91.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Mobile registration in barangay San Antonio. February 13, 2024/eb6b8384-2f1b-48cf-9d06-5995fe8ed908.jpg" alt="mcro_image">
-                    </ul>
-                </li>
-                <li>
-                    <a class="folder" href="#"><i class="fas fa-folder icon"></i>Barangay Tanawan. May 28, 2024</a>
-                    <ul class="nested">
-                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/1b263d73-4c95-41b4-8bb1-0af6861fa0c1.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/2a55d898-4bd0-4df2-89c1-74bf7358cc58.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/2c68cc1b-fd29-4451-bd58-d831e342928d.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/02f939ea-f5d0-4baf-b1e8-d9b72102811b.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/4ab7c1c4-3c66-49ef-bf01-08321c7f13f6.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/4f02d110-b7ac-4bd0-8cb8-61d963d8b9d9.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/7eee4941-daf3-4bc8-97fd-4b572bc73b8c.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/11f08fde-20e3-47e1-a608-e9109475ac9c.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/86aa9541-c522-4559-82eb-45e38825f3b1.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/40287ce3-c409-4ef1-9964-84fb70b6e58d.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/a4f9cc04-c01e-4bb9-b0a7-c01da6526e56.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/f445f2d7-9c29-4b46-ade3-2c8022cf61c5.jpg" alt="mcro_image">
-                    </ul>
-            </ul>
-        </li>
-        <!--Todo End Here-->
-        <!--Todo Start Here-->
-        <li>
-            <a class="folder" href="#"><i class="fas fa-folder icon"></i>Pre Marriage Orientation in Barangay</a>
-            <ul class="nested">
-                <li>
-                    <a class="folder" href="#"><i class="fas fa-folder icon"></i>Barangay San Antonio. May 23, 2024</a>
-                    <ul class="nested">
-                        <img src="Pre marriage orientation in barangays/Pre Marriage Orientation in Barangay San Antonio. May 23, 2024/01d309dc-2972-42d2-9ff8-11785eadf11c.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Pre Marriage Orientation in Barangay San Antonio. May 23, 2024/4b037086-0953-4c60-98ae-6331e46b4680.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Pre Marriage Orientation in Barangay San Antonio. May 23, 2024/8df8eb21-5c05-4a78-af4e-80229394b8e8.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Pre Marriage Orientation in Barangay San Antonio. May 23, 2024/bf672089-3e02-4019-bd75-fde68d26de26.jpg" alt="mcro_image">
-                    </ul>
-                </li>
-                <li>
-                    <a class="folder" href="#"><i class="fas fa-folder icon"></i>Barangay Tanawan. May 28, 2024</a>
-                    <ul class="nested">
-                        <img src="Pre marriage orientation in barangays/Pre Marriage Orientation in Barangay Tanawan/4c3809c4-e23d-4673-8c9c-a18f9febe1a5.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Pre Marriage Orientation in Barangay Tanawan/c3dcb8fe-293a-48f6-abbb-e002d4c355db.jpg" alt="mcro_image">
-                        <img src="Pre marriage orientation in barangays/Pre Marriage Orientation in Barangay Tanawan/d9141b25-6f23-45c4-b8c9-2fa24153bcda.jpg" alt="mcro_image">
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <!--Todo End Here-->
-</main>
-    <script>
-    
-    // Your JavaScript code here
-            //for the mobile nav bar
-        function toggleMenu() {
-            var navbar = document.getElementById("navbar");
-            navbar.classList.toggle("active");
-        }
-        
-            //for the website counter
-        function incrementVisitorCount() {
-            let count = localStorage.getItem('visitorCount');
-            count = parseInt(count) || 0;
-            count++;
-            localStorage.setItem('visitorCount', count);
-            document.getElementById('visitorCount').textContent = count;
-        }
-        
-        window.onload = function() {
-            incrementVisitorCount();
-        };
+    <button class="hamburger" onclick="toggleNav()" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+  </header>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html">🏠 Home</a>
+    <a href="activities.html" class="active">📸 Activities</a>
+    <a href="schedule.html">📅 Schedules</a>
+    <a href="notice.html">📋 Notices</a>
+  </nav>
 
-        const folders = document.querySelectorAll('.folder');
+  <div class="hero">
+    <div class="hero-label">Office Activities</div>
+    <h1>Field Activities & Outreach</h1>
+    <p>Mobile registration drives, pre-marriage orientations, and community outreach programs across Capalonga's barangays.</p>
+  </div>
 
-    folders.forEach(folder => {
-        folder.addEventListener('click', () => {
-            const nested = folder.nextElementSibling;
-            nested.classList.toggle('open');
-            const icon = folder.querySelector('.icon');
-            icon.classList.toggle('fa-folder');
-            icon.classList.toggle('fa-folder-open');
-        });
-    }
-    )
-        
-    </script>
-</body>
- <footer>
-        <!--<div class="rcrd" >
-            <div id="cnt">
-                <p>Record Count for the month <b>June</b> 2024</p>
-            </div>
-            <p>Birth: <b>271</b> Marriage: <b>36</b> Death: <b>79</b></p>
+  <div class="page-body">
+
+    <div class="activity-group">
+      <div class="section-label">Mobile Registration in Barangay</div>
+
+      <div class="event-block">
+        <div class="event-header">
+          <span class="event-date-badge"><i class="ti ti-calendar"></i> April 4, 2024</span>
+          <span class="event-title">Barangay Binawangan</span>
         </div>
-        <br> 
-            <!--<p>Itong website na ito ay buwanang nag-uupdate </p>
-            <p>Pero kung merong mga biglaang announcement o balita ito na pinopost sa itaas </p>-->
-       <!-- <br>
-            <p>Website Visitor Count: <span id="visitorCount">0</span></p>
-        <br>-->
-            <p>&copy; 2024 Municipal Civil Registrar</p>
-    </footer>
+        <div class="photo-grid">
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile registration in barangay binawangan. April 4, 2024/9a089f74-48a7-4e01-a48d-9035b7c56028.jpg" alt="Binawangan 1" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile registration in barangay binawangan. April 4, 2024/bad5b680-c40e-4bf5-abf0-12e666e77c37.jpg" alt="Binawangan 2" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile registration in barangay binawangan. April 4, 2024/ed710449-fbdc-4335-930c-134a84b16e2f.jpg" alt="Binawangan 3" onclick="openLightbox(this)" />
+        </div>
+      </div>
 
+      <div class="event-block">
+        <div class="event-header">
+          <span class="event-date-badge"><i class="ti ti-calendar"></i> February 20, 2024</span>
+          <span class="event-title">Barangay Del Pilar</span>
+        </div>
+        <div class="photo-grid">
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile registration in barangay del Pilar. February 20, 2024/352de14f-f3dd-4864-9c00-0d11141f6a27.jpg" alt="Del Pilar 1" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile registration in barangay del Pilar. February 20, 2024/391706ef-db16-49f0-9665-b1a0ef51fe17.jpg" alt="Del Pilar 2" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile registration in barangay del Pilar. February 20, 2024/6367d342-960c-4f2b-a54d-292bb591f58c.jpg" alt="Del Pilar 3" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile registration in barangay del Pilar. February 20, 2024/dba455a3-a1db-4001-a384-80644cbae71d.jpg" alt="Del Pilar 4" onclick="openLightbox(this)" />
+        </div>
+      </div>
+
+      <div class="event-block">
+        <div class="event-header">
+          <span class="event-date-badge"><i class="ti ti-calendar"></i> February 13, 2024</span>
+          <span class="event-title">Barangay San Antonio</span>
+        </div>
+        <div class="photo-grid">
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile registration in barangay San Antonio. February 13, 2024/3b7074f4-0ca3-4145-828c-5e1d0d7a1b54.jpg" alt="San Antonio 1" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile registration in barangay San Antonio. February 13, 2024/e0728ef2-1f0c-409d-8444-5421958ffb88.jpg" alt="San Antonio 2" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile registration in barangay San Antonio. February 13, 2024/ea91bd09-58f8-4ad4-b6da-2fe8211a7f91.jpg" alt="San Antonio 3" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile registration in barangay San Antonio. February 13, 2024/eb6b8384-2f1b-48cf-9d06-5995fe8ed908.jpg" alt="San Antonio 4" onclick="openLightbox(this)" />
+        </div>
+      </div>
+
+      <div class="event-block">
+        <div class="event-header">
+          <span class="event-date-badge"><i class="ti ti-calendar"></i> May 28, 2024</span>
+          <span class="event-title">Barangay Tanawan</span>
+        </div>
+        <div class="photo-grid">
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/1b263d73-4c95-41b4-8bb1-0af6861fa0c1.jpg" alt="Tanawan 1" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/2a55d898-4bd0-4df2-89c1-74bf7358cc58.jpg" alt="Tanawan 2" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/2c68cc1b-fd29-4451-bd58-d831e342928d.jpg" alt="Tanawan 3" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/02f939ea-f5d0-4baf-b1e8-d9b72102811b.jpg" alt="Tanawan 4" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/4ab7c1c4-3c66-49ef-bf01-08321c7f13f6.jpg" alt="Tanawan 5" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/4f02d110-b7ac-4bd0-8cb8-61d963d8b9d9.jpg" alt="Tanawan 6" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/7eee4941-daf3-4bc8-97fd-4b572bc73b8c.jpg" alt="Tanawan 7" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/11f08fde-20e3-47e1-a608-e9109475ac9c.jpg" alt="Tanawan 8" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/86aa9541-c522-4559-82eb-45e38825f3b1.jpg" alt="Tanawan 9" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/40287ce3-c409-4ef1-9964-84fb70b6e58d.jpg" alt="Tanawan 10" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/a4f9cc04-c01e-4bb9-b0a7-c01da6526e56.jpg" alt="Tanawan 11" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Mobile Registration in Barangay Tanawan. May 28, 2024/f445f2d7-9c29-4b46-ade3-2c8022cf61c5.jpg" alt="Tanawan 12" onclick="openLightbox(this)" />
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-group">
+      <div class="section-label">Pre-Marriage Orientation in Barangay</div>
+
+      <div class="event-block">
+        <div class="event-header">
+          <span class="event-date-badge"><i class="ti ti-calendar"></i> May 23, 2024</span>
+          <span class="event-title">Barangay San Antonio</span>
+        </div>
+        <div class="photo-grid">
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Pre Marriage Orientation in Barangay San Antonio. May 23, 2024/01d309dc-2972-42d2-9ff8-11785eadf11c.jpg" alt="PMO San Antonio 1" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Pre Marriage Orientation in Barangay San Antonio. May 23, 2024/4b037086-0953-4c60-98ae-6331e46b4680.jpg" alt="PMO San Antonio 2" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Pre Marriage Orientation in Barangay San Antonio. May 23, 2024/8df8eb21-5c05-4a78-af4e-80229394b8e8.jpg" alt="PMO San Antonio 3" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Pre Marriage Orientation in Barangay San Antonio. May 23, 2024/bf672089-3e02-4019-bd75-fde68d26de26.jpg" alt="PMO San Antonio 4" onclick="openLightbox(this)" />
+        </div>
+      </div>
+
+      <div class="event-block">
+        <div class="event-header">
+          <span class="event-date-badge"><i class="ti ti-calendar"></i> May 28, 2024</span>
+          <span class="event-title">Barangay Tanawan</span>
+        </div>
+        <div class="photo-grid">
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Pre Marriage Orientation in Barangay Tanawan/4c3809c4-e23d-4673-8c9c-a18f9febe1a5.jpg" alt="PMO Tanawan 1" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Pre Marriage Orientation in Barangay Tanawan/c3dcb8fe-293a-48f6-abbb-e002d4c355db.jpg" alt="PMO Tanawan 2" onclick="openLightbox(this)" />
+          <img src="https://mcrocapalonga.github.io/info/Pre marriage orientation in barangays/Pre Marriage Orientation in Barangay Tanawan/d9141b25-6f23-45c4-b8c9-2fa24153bcda.jpg" alt="PMO Tanawan 3" onclick="openLightbox(this)" />
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    © 2024 Municipal Civil Registrar, Capalonga, Camarines Norte<br>
+    <a href="https://mcrocapalonga.github.io/info/">mcrocapalonga.github.io</a>
+  </footer>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()"><i class="ti ti-x"></i></button>
+  <img id="lightbox-img" src="" alt="Full photo" />
+</div>
+
+<script>
+  function toggleNav() { document.getElementById('mobileNav').classList.toggle('open'); }
+  function openLightbox(img) {
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+</body>
 </html>
