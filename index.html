@@ -1,302 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="mcro_LOGOs.ico" type="image/x-icon">
-    <!--
-        Todo para kpaga hihiwalayin yung css
-    <link rel="stylesheet" href="styles.css"> -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Municipal Civil Registrar — Capalonga</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0C2340;
+      --gold: #B8891A;
+      --gold-light: #F5E9C8;
+      --cream: #FAF7F2;
+      --text: #1A1A1A;
+      --muted: #5A5A5A;
+      --border: rgba(0,0,0,0.1);
+    }
+    body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--text); }
+    .site { max-width: 900px; margin: 0 auto; }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Municipal Civil Registrar</title>
-    <style>
-        /* Basic CSS Reset */
-        body, h1, h2, p, ul, li {
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            min-height: 100vh; /* Ensure the body stretches to at least the height of the viewport */
-            position: relative; /* Needed for the footer to work properly */
-            background-color: #f0f0f0;
-            line-height: 1.6;
-        }
-        
-        /* Header Styles */
-       /* Header Styles */
-        header {
-            background-color: #000;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            position: relative; /* Add this to make position adjustments */
-        }
+    /* HEADER */
+    .header {
+      background: var(--navy);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid var(--gold);
+      min-height: 72px;
+    }
+    .header-brand { display: flex; align-items: center; gap: 14px; }
+    .header-logo {
+      width: 46px; height: 46px;
+      background: white; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; font-weight: 700; color: var(--navy);
+      flex-shrink: 0; overflow: hidden;
+    }
+    .header-logo img { width: 100%; height: 100%; object-fit: cover; }
+    .header-title { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: white; line-height: 1.25; }
+    .header-subtitle { font-size: 11px; color: rgba(255,255,255,0.55); font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; }
+    nav { display: flex; gap: 6px; }
+    nav a {
+      color: rgba(255,255,255,0.75); text-decoration: none;
+      font-size: 13px; font-weight: 500;
+      padding: 6px 10px; border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+    }
+    nav a:hover { background: rgba(255,255,255,0.1); color: white; }
+    nav a.active { color: var(--gold); }
 
-        header img {
-            max-width: 50%; /* Adjusts the width of the image to fit its container */
-            height: auto;
-        }
-        header h1 {
-            font-family: serif;
-            font-size: 24px;
-            margin-bottom: 5px;
-        }
-        header p {
-            font-size: 12px;
-            margin-bottom: 20px;
-        }
-        /* Navigation Styles */
-        nav {
-            background-color: #333;
-            text-align: center;
-            padding: 10px 0;
-            display: flex;
-            justify-content: center;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            transition: background-color 0.3s;
-            display: block;
-        }
-        nav a:hover {
-            background-color: #555;
-        }
-        .menu-icon {
-            display: none;
-        }
-        nav .active{
-            background-color: #555;
-        }
-        /* Main Content Styles */
-        main {
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-        #sperator h3{
-            font-size: 40px;
-            text-align: center;
-            border-bottom: 1px solid #b1b1b1;
-        }
-        .article {
-            /* background-image: url(psa.png);
-            background-position: right;
-            background-size: 30%;
-            background-repeat: no-repeat;*/
-            text-decoration: none;
-            padding: 15px;
-            color: #000;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-            width: 45%; /* Adjusted for desktop layout */
-        }
-        .article h2 {
-            color: #915ef8;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        .article p {
-            font-size: 14px;
-            line-height: 1.5;
-            color: #333;
-        }
-        .article img {
-            float: right;
-            max-width: 30%;
-            height: auto;
-            display: block;
-            margin: 0 0 0 15px;
-            border-radius: 5px;
-        }
-        
-        /* Footer Styles */
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            bottom: 0;
-            width: 100%;
-        }
-        #cnt{
-            margin: auto;
-            width: 50%;
-            padding: 5px;
-            border-bottom: 1px solid #b1b1b1;
-        }
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #0C2340 60%, #163560);
+      padding: 2.5rem 2rem;
+      border-bottom: 1px solid rgba(184,137,26,0.3);
+      display: flex; align-items: center; gap: 2rem;
+    }
+    .hero-text { flex: 1; }
+    .hero-label {
+      display: inline-block;
+      background: rgba(184,137,26,0.2); color: var(--gold);
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 4px; margin-bottom: 12px;
+      border: 1px solid rgba(184,137,26,0.3);
+    }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: 28px; color: white; line-height: 1.3; margin-bottom: 10px; }
+    .hero p { color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.6; max-width: 420px; }
+    .hero-badge {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px; padding: 1.25rem 1.5rem;
+      text-align: center; flex-shrink: 0; min-width: 140px;
+    }
+    .hero-badge-num { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--gold); font-weight: 700; }
+    .hero-badge-label { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 4px; letter-spacing: 0.05em; }
 
-        #dt p{
-            color: #f0f0f0;
-            font-size: 20px;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            background-color: #915ef8;
-        }
+    /* MAIN */
+    .main { padding: 2rem; display: grid; grid-template-columns: 1fr 320px; gap: 1.5rem; }
+    .section-label {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 1rem; display: flex; align-items: center; gap: 8px;
+    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--gold-light); }
 
+    /* NEWS CARDS */
+    .news-feed { display: flex; flex-direction: column; gap: 1rem; }
+    .news-card {
+      background: white; border-radius: 10px;
+      border: 0.5px solid var(--border); overflow: hidden;
+      transition: border-color 0.15s;
+    }
+    .news-card:hover { border-color: rgba(184,137,26,0.3); }
+    .news-card-inner { padding: 1.25rem; }
+    .news-tag {
+      display: inline-block; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 4px; margin-bottom: 10px;
+    }
+    .tag-alert { background: #FEF3C7; color: #92400E; }
+    .tag-welfare { background: #D1FAE5; color: #065F46; }
+    .tag-update { background: #DBEAFE; color: #1E40AF; }
+    .tag-activity { background: #EDE9FE; color: #5B21B6; }
+    .news-card h2 {
+      font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600;
+      color: var(--navy); line-height: 1.4; margin-bottom: 8px;
+    }
+    .news-card p { font-size: 13.5px; color: var(--muted); line-height: 1.65; margin-bottom: 12px; }
+    .news-meta {
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 0.5px solid var(--border); padding-top: 10px; margin-top: 4px;
+    }
+    .news-date { font-size: 12px; color: #9A9A9A; }
+    .news-link {
+      font-size: 12px; font-weight: 500; color: var(--navy);
+      text-decoration: none; border-bottom: 1px solid var(--navy);
+      padding-bottom: 1px; transition: color 0.15s, border-color 0.15s;
+    }
+    .news-link:hover { color: var(--gold); border-color: var(--gold); }
 
-        @media only screen and (max-width: 768px) {
-            /* Adjustments for tablets */
-            header {
-                background-color: #000;
-                color: #fff;
-                padding: 20px 0;
-                text-align: center;
-                position: relative; /* Add this to make position adjustments */
-            }
-            nav {
-                display: none;
-                position: absolute;
-                top: 125px;
-                left: 0;
-                width: 100%;
-                background-color: #333;
-                overflow: hidden;
-            }
-            nav.active {
-                display: flex;
-                flex-direction: column;
-            }
-            .menu-icon {
-                background-color: #555;
-                display: block;
-                position: absolute;
-                top: 80px;
-                text-align: right;
-                padding-left: 90%;
-                padding-right: 3.5%;
-                color: #fff;
-                font-size: 30px;
-                cursor: pointer;
-                
-            }
-            .menu-icon:hover {
-                color: #ccc;
-            }
-            nav a {
-                padding: 10px 0;
-            }
-            header img {
-                max-width: 80%; /* Adjust the width as per your design preference */
-                height: auto;
-            }
-            main {
-                padding: 10px;
-            }
-            .article {
-                width: 100%;
-            }
-        }
-    </style>
+    /* SIDEBAR */
+    .sidebar { display: flex; flex-direction: column; gap: 1rem; }
+    .sidebar-card { background: white; border-radius: 10px; border: 0.5px solid var(--border); padding: 1.25rem; }
+    .sidebar-card h3 { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--navy); margin-bottom: 0.75rem; font-weight: 600; }
+    .quick-links { display: flex; flex-direction: column; gap: 4px; }
+    .quick-link {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 10px; border-radius: 7px; text-decoration: none;
+      color: var(--text); font-size: 13px;
+      transition: background 0.12s; border: 0.5px solid transparent;
+    }
+    .quick-link:hover { background: var(--gold-light); border-color: rgba(184,137,26,0.2); color: var(--navy); }
+    .quick-link i { color: var(--gold); font-size: 16px; }
+    .notice-box {
+      background: #FFFBEB; border: 1px solid #FDE68A;
+      border-radius: 8px; padding: 1rem;
+      font-size: 13px; color: #78350F; line-height: 1.6;
+    }
+    .notice-box strong { display: block; margin-bottom: 4px; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; }
+    .contact-rows { display: flex; flex-direction: column; gap: 8px; }
+    .contact-row { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--muted); }
+    .contact-row i { color: var(--gold); font-size: 15px; margin-top: 1px; }
+
+    /* FOOTER */
+    .footer {
+      background: var(--navy); color: rgba(255,255,255,0.5);
+      font-size: 12px; text-align: center;
+      padding: 1.25rem 2rem; border-top: 2px solid var(--gold);
+    }
+    .footer a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 680px) {
+      .main { grid-template-columns: 1fr; }
+      .hero { flex-direction: column; }
+      nav { display: none; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <a href="index"><img src="resources/mcro inv.png" alt="mcro_LOGOs"></a>
-    </header>
-    <nav id="navbar">
-        <a href="index">Home</a>
-        <a href="activities">Activities</a>
-        <a href="schedule">Schedules</a>
-        <!--<a href="#">Guide</a>---> 
-        <a href="notice">Notice</a>
-        <a href="Incoming">Incoming</a>
+<div class="site">
+  <header class="header">
+    <div class="header-brand">
+      <div class="header-logo">
+        <img src="https://mcrocapalonga.github.io/info/resources/mcro inv.png" alt="MCRO Logo" onerror="this.style.display='none';this.parentNode.textContent='CR'" />
+      </div>
+      <div>
+        <div class="header-title">Municipal Civil Registrar</div>
+        <div class="header-subtitle">Capalonga, Camarines Norte</div>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="activities.html">Activities</a>
+      <a href="schedule.html">Schedules</a>
+      <a href="notice.html">Notices</a>
     </nav>
-    
-        <span class="menu-icon" onclick="toggleMenu()">☰</span>
-    
-    <div id="sperator"><h3>Office Update</h3></div>
+  </header>
 
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-label">Office Bulletin</div>
+      <h1>Serving the People of Capalonga</h1>
+      <p>Official updates, civil registration notices, and community announcements from the Municipal Civil Registrar's Office.</p>
+    </div>
+    <div class="hero-badge">
+      <div class="hero-badge-num">2024</div>
+      <div class="hero-badge-label">Current Year</div>
+    </div>
+  </div>
+
+  <div class="main">
     <main>
-       <!--<marquee width="100%" direction="left" height="40%">
-        This is a sample scrolling text that has scrolls texts to the left.
-        </marquee>--> 
-        
-        <article class="article">
-            <!--Todo PSA BATCH UPDATE-->
-            <h2>UPDATE PARA SA MGA NAGREQUEST NG PSA</h2>
-            <img src="resources/psa.png" alt="psalogo">
-            <p>Lahat po ng nagrequest ng PSA batch <b>NUMBER 7</b>  ay dumating na po, paki dala lang po ng claim stab kung nawala na po ang inyong claim stab yung mismong may ari po ang pupunta magdala lamang po ng I.D </p>
-            <br>
-            <div id="dt"><P><b>Date: </b>July 8, 2024</P>
-        </article>
-        
+      <div class="section-label">Latest Updates</div>
+      <div class="news-feed">
 
-        <article class="article">
-            
-            <h2>CENTENARIANS ACT OF 2016 EXPANDS COVERAGE, FILIPINO SENIORS AGED 80 AND UP TO RECEIVE P10,000 CASH INCENTIVE</h2>
-            <img src="https://www.bagongpilipinastayo.com/static/media/bagong_pilipinas_logo.dca1ae0b72a23f632ee0.png" alt="mcro_image">
-            <p>Under the new law, Filipinos, upon reaching the age of 80, shall receive a cash gift of 10 thousand pesos and every five years thereafter and upon reaching the age of 85, 90, and until 95. We do, after all, stand on the shoulders of these giants.</p>
-            <br>
-            <br>
-            <div id="dtls"><a target="_blank" href="https://cfo.gov.ph/centenarians-act-of-2016-expands-coverage-filipino-seniors-aged-80-and-up-to-receive-p10000-cash-incentive/#:~:text=Under%20the%20new%20law%2C%20Filipinos,the%20shoulders%20of%20these%20giants."><em><b><u>Visit here</u></b></em></a></div>
-            
-        </article>
+        <div class="news-card">
+          <div class="news-card-inner">
+            <span class="news-tag tag-alert">PSA Notice</span>
+            <h2>PSA Batch No. 7 — Ready for Claim</h2>
+            <p>All individuals who requested PSA documents under Batch 7 may now claim their documents. Please bring your claim stub. If your claim stub has been lost, the registered owner must appear in person with a valid ID.</p>
+            <div class="news-meta">
+              <span class="news-date">July 8, 2024</span>
+            </div>
+          </div>
+        </div>
 
-        <article class="article">
-            
-            <h2>Recent Activity of the Office</h2>
-            <img src="Barangay logo/San Roque.png" alt="mcro_image">
-            <p>Kasalang barangay sa brgy. San Antonio, Capalonga, Camarines Norte</p>
-            <br>
-            <br>
-            <div id="dtls"><a href="activities.html"><em><b><u>Visit here</u></b></em></a></div>
-            
-        </article>
+        <div class="news-card">
+          <div class="news-card-inner">
+            <span class="news-tag tag-welfare">Senior Welfare</span>
+            <h2>Centenarians Act — Seniors aged 80 and above now eligible for ₱10,000 cash incentive</h2>
+            <p>Under the expanded Centenarians Act of 2016, Filipino seniors receive a ₱10,000 cash gift upon reaching age 80, with additional grants at ages 85, 90, and 95.</p>
+            <div class="news-meta">
+              <span class="news-date">2024</span>
+              <a class="news-link" href="https://cfo.gov.ph/centenarians-act-of-2016-expands-coverage-filipino-seniors-aged-80-and-up-to-receive-p10000-cash-incentive/">Read more →</a>
+            </div>
+          </div>
+        </div>
 
-        <article class="article">
-            <h2>Municipality of Capalonga Update</h2>
-            <img src="Barangay logo/Capalonga Logo.png" alt="mcro_image">
-            <p>Para po sa mga nagtatanong kung ano po ang nagyayari sa bayan Capalonga</p>
-            <br>
-            <br>
-            <div id="dtls"><a target="_blank" href="https://web.facebook.com/newlgucapalonga"><em><b><u>Visit here</u></b></em></a></div>
-        </article>
-        
-        
+        <div class="news-card">
+          <div class="news-card-inner">
+            <span class="news-tag tag-activity">Recent Activity</span>
+            <h2>Kasalang Barangay — Brgy. San Antonio</h2>
+            <p>The office recently assisted in the Kasalang Barangay civil registration activity held in Barangay San Antonio, Capalonga, Camarines Norte.</p>
+            <div class="news-meta">
+              <span class="news-date">2024</span>
+              <a class="news-link" href="activities.html">View activities →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-card-inner">
+            <span class="news-tag tag-update">Municipality</span>
+            <h2>Municipality of Capalonga — Latest Updates</h2>
+            <p>Stay informed about what's happening across the municipality. Follow the official LGU Capalonga page for the latest news and announcements.</p>
+            <div class="news-meta">
+              <span class="news-date">2024</span>
+              <a class="news-link" href="https://web.facebook.com/newlgucapalonga">Visit LGU page →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </main>
 
-    <footer>
-        <!--<div class="rcrd" >
-            <div id="cnt">
-                <p>Record Count for the month <b>June</b> 2024</p>
-            </div>
-            <p>Birth: <b>271</b> Marriage: <b>36</b> Death: <b>79</b></p>
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="notice-box">
+          <strong>⚠ Important Reminder</strong>
+          PSA Batch 7 claimants must bring their claim stub or appear in person with a valid ID.
         </div>
-        <br> 
-            <!--<p>Itong website na ito ay buwanang nag-uupdate </p>
-            <p>Pero kung merong mga biglaang announcement o balita ito na pinopost sa itaas </p>-->
-       <!-- <br>
-            <p>Website Visitor Count: <span id="visitorCount">0</span></p>
-        <br>-->
-            <p>&copy; 2024 Municipal Civil Registrar</p>
-    </footer>
-    <script>
-    
-        
-    // Your JavaScript code here
-            //for the mobile nav bar
-        function toggleMenu() {
-            var navbar = document.getElementById("navbar");
-            navbar.classList.toggle("active");
-        }
-            //for the website counter
-            function incrementVisitorCount() {
-            let count = localStorage.getItem('visitorCount');
-            count = parseInt(count) || 0;
-            count++;
-            localStorage.setItem('visitorCount', count);
-            document.getElementById('visitorCount').textContent = count;
-        }
-        
-        window.onload = function() {
-            incrementVisitorCount();
-        };
+      </div>
 
+      <div class="sidebar-card">
+        <h3>Quick Links</h3>
+        <div class="quick-links">
+          <a class="quick-link" href="activities.html"><i class="ti ti-calendar-event"></i>Activities</a>
+          <a class="quick-link" href="schedule.html"><i class="ti ti-clock"></i>Office Schedules</a>
+          <a class="quick-link" href="notice.html"><i class="ti ti-bell"></i>Notices</a>
+          <a class="quick-link" href="https://web.facebook.com/newlgucapalonga"><i class="ti ti-external-link"></i>LGU Capalonga</a>
+        </div>
+      </div>
 
-    </script>
+      <div class="sidebar-card">
+        <h3>Contact the Office</h3>
+        <div class="contact-rows">
+          <div class="contact-row"><i class="ti ti-map-pin"></i><span>Municipal Hall, Capalonga, Camarines Norte</span></div>
+          <div class="contact-row"><i class="ti ti-clock"></i><span>Mon–Fri, 8:00 AM – 5:00 PM</span></div>
+          <div class="contact-row"><i class="ti ti-file-certificate"></i><span>Civil registration services for all residents</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    © 2024 Municipal Civil Registrar, Capalonga, Camarines Norte &nbsp;·&nbsp;
+    <a href="https://mcrocapalonga.github.io/info/">mcrocapalonga.github.io</a>
+  </footer>
+</div>
 </body>
-
 </html>
