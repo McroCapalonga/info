@@ -3,147 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Activities — Municipal Civil Registrar</title>
+  <title>Activities — Municipal Civil Registrar, Capalonga</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --navy: #0C2340; --gold: #B8891A; --gold-light: #F5E9C8;
-      --cream: #FAF7F2; --text: #1A1A1A; --muted: #5A5A5A; --border: rgba(0,0,0,0.1);
-    }
-    body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--text); -webkit-font-smoothing: antialiased; }
-    .site { max-width: 900px; margin: 0 auto; }
-    .header {
-      background: var(--navy); padding: 0 1.25rem;
-      display: flex; align-items: center; justify-content: space-between;
-      border-bottom: 3px solid var(--gold); min-height: 64px;
-      position: relative; z-index: 100;
-    }
-    .header-brand { display: flex; align-items: center; gap: 10px; }
-    .header-logo {
-      width: 40px; height: 40px; background: white; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--navy);
-      flex-shrink: 0; overflow: hidden;
-    }
-    .header-logo img { width: 100%; height: 100%; object-fit: cover; }
-    .header-title { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 600; color: white; line-height: 1.25; }
-    .header-subtitle { font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 0.06em; text-transform: uppercase; }
-    .desktop-nav { display: flex; gap: 4px; }
-    .desktop-nav a {
-      color: rgba(255,255,255,0.75); text-decoration: none;
-      font-size: 13px; font-weight: 500; padding: 6px 10px; border-radius: 6px;
-      transition: background 0.15s, color 0.15s;
-    }
-    .desktop-nav a:hover { background: rgba(255,255,255,0.1); color: white; }
-    .desktop-nav a.active { color: var(--gold); }
-    .hamburger {
-      display: none; background: none; border: none; cursor: pointer;
-      color: white; font-size: 24px; padding: 4px; line-height: 1;
-    }
-    .mobile-nav {
-      display: none; flex-direction: column;
-      background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08);
-      position: absolute; top: 100%; left: 0; right: 0; z-index: 99;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-    }
-    .mobile-nav.open { display: flex; }
-    .mobile-nav a {
-      color: rgba(255,255,255,0.8); text-decoration: none;
-      font-size: 15px; font-weight: 500; padding: 15px 1.25rem;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .mobile-nav a.active { color: var(--gold); }
-
-    .hero {
-      background: linear-gradient(135deg, #0C2340 60%, #163560);
-      padding: 1.75rem 1.25rem; border-bottom: 1px solid rgba(184,137,26,0.3);
-    }
-    .hero-label {
-      display: inline-block; background: rgba(184,137,26,0.2); color: var(--gold);
-      font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 3px 9px; border-radius: 4px; margin-bottom: 10px;
-      border: 1px solid rgba(184,137,26,0.3);
-    }
-    .hero h1 { font-family: 'Playfair Display', serif; font-size: 22px; color: white; line-height: 1.3; margin-bottom: 6px; }
-    .hero p { color: rgba(255,255,255,0.55); font-size: 13px; line-height: 1.6; }
-
-    .page-body { padding: 1.25rem; }
-    .section-label {
-      font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--gold);
-      margin-bottom: 1.1rem; display: flex; align-items: center; gap: 8px;
-    }
-    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--gold-light); }
-
-    .activity-group { margin-bottom: 2.25rem; }
-    .event-block { margin-bottom: 1.5rem; }
-    .event-header {
-      display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
-      flex-wrap: wrap;
-    }
-    .event-date-badge {
-      background: var(--navy); color: var(--gold);
-      font-size: 11px; font-weight: 500; padding: 4px 10px;
-      border-radius: 5px; white-space: nowrap; letter-spacing: 0.04em;
-      display: flex; align-items: center; gap: 5px;
-    }
-    .event-title { font-size: 14px; font-weight: 500; color: var(--text); }
-
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 6px;
-    }
-    .photo-grid img {
-      width: 100%; aspect-ratio: 4/3; object-fit: cover;
-      border-radius: 7px; border: 0.5px solid var(--border);
-      cursor: pointer; transition: opacity 0.15s;
-    }
-    .photo-grid img:hover { opacity: 0.85; }
-
-    /* LIGHTBOX */
-    .lightbox {
-      display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,0.9); z-index: 999;
-      align-items: center; justify-content: center;
-      padding: 1rem;
-    }
-    .lightbox.open { display: flex; }
-    .lightbox img { max-width: 100%; max-height: 90vh; border-radius: 8px; object-fit: contain; }
-    .lightbox-close {
-      position: fixed; top: 1rem; right: 1rem;
-      background: white; border: none; border-radius: 50%;
-      width: 36px; height: 36px; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px; color: var(--navy);
-    }
-
-    .footer {
-      background: var(--navy); color: rgba(255,255,255,0.5);
-      font-size: 12px; text-align: center; line-height: 1.8;
-      padding: 1.25rem; border-top: 2px solid var(--gold);
-    }
-    .footer a { color: var(--gold); text-decoration: none; }
-
-    @media (max-width: 640px) {
-      .desktop-nav { display: none; }
-      .hamburger { display: block; }
-      .photo-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (min-width: 641px) {
-      .hamburger { display: none; }
-      .mobile-nav { display: none !important; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <div class="site">
+
   <header class="header">
     <div class="header-brand">
       <div class="header-logo">
-        <img src="https://mcrocapalonga.github.io/info/resources/mcro inv.png" alt="MCRO Logo" onerror="this.style.display='none';this.parentNode.textContent='CR'" />
+        <img src="mcro_LOGOs.png" alt="MCRO Logo"
+             onerror="this.style.display='none';this.parentNode.textContent='CR'" />
       </div>
       <div>
         <div class="header-title">Municipal Civil Registrar</div>
@@ -151,34 +22,38 @@
       </div>
     </div>
     <nav class="desktop-nav">
-      <a href="index.html">Home</a>
-      <a href="activities.html" class="active">Activities</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="activities.html">Activities</a>
       <a href="schedule.html">Schedules</a>
       <a href="notice.html">Notices</a>
     </nav>
-    <button class="hamburger" onclick="toggleNav()" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+    <button class="hamburger" onclick="toggleNav()" aria-label="Open menu">
+      <i class="ti ti-menu-2"></i>
+    </button>
   </header>
+
   <nav class="mobile-nav" id="mobileNav">
-    <a href="index.html">🏠 Home</a>
-    <a href="activities.html" class="active">📸 Activities</a>
-    <a href="schedule.html">📅 Schedules</a>
-    <a href="notice.html">📋 Notices</a>
+    <a href="index.html"><i class="ti ti-home"></i>Home</a>
+    <a href="activities.html" class="active"><i class="ti ti-camera"></i>Activities</a>
+    <a href="schedule.html"><i class="ti ti-calendar"></i>Schedules</a>
+    <a href="notice.html"><i class="ti ti-bell"></i>Notices</a>
   </nav>
 
   <div class="hero">
     <div class="hero-label">Office Activities</div>
-    <h1>Field Activities & Outreach</h1>
+    <h1>Field Activities &amp; Outreach</h1>
     <p>Mobile registration drives, pre-marriage orientations, and community outreach programs across Capalonga's barangays.</p>
   </div>
 
   <div class="page-body">
 
+    <!-- MOBILE REGISTRATION -->
     <div class="activity-group">
       <div class="section-label">Mobile Registration in Barangay</div>
 
       <div class="event-block">
         <div class="event-header">
-          <span class="event-date-badge"><i class="ti ti-calendar"></i> April 4, 2024</span>
+          <span class="event-date-badge"><i class="ti ti-calendar"></i>April 4, 2024</span>
           <span class="event-title">Barangay Binawangan</span>
         </div>
         <div class="photo-grid">
@@ -190,7 +65,7 @@
 
       <div class="event-block">
         <div class="event-header">
-          <span class="event-date-badge"><i class="ti ti-calendar"></i> February 20, 2024</span>
+          <span class="event-date-badge"><i class="ti ti-calendar"></i>February 20, 2024</span>
           <span class="event-title">Barangay Del Pilar</span>
         </div>
         <div class="photo-grid">
@@ -203,7 +78,7 @@
 
       <div class="event-block">
         <div class="event-header">
-          <span class="event-date-badge"><i class="ti ti-calendar"></i> February 13, 2024</span>
+          <span class="event-date-badge"><i class="ti ti-calendar"></i>February 13, 2024</span>
           <span class="event-title">Barangay San Antonio</span>
         </div>
         <div class="photo-grid">
@@ -216,7 +91,7 @@
 
       <div class="event-block">
         <div class="event-header">
-          <span class="event-date-badge"><i class="ti ti-calendar"></i> May 28, 2024</span>
+          <span class="event-date-badge"><i class="ti ti-calendar"></i>May 28, 2024</span>
           <span class="event-title">Barangay Tanawan</span>
         </div>
         <div class="photo-grid">
@@ -236,12 +111,13 @@
       </div>
     </div>
 
+    <!-- PRE-MARRIAGE ORIENTATION -->
     <div class="activity-group">
       <div class="section-label">Pre-Marriage Orientation in Barangay</div>
 
       <div class="event-block">
         <div class="event-header">
-          <span class="event-date-badge"><i class="ti ti-calendar"></i> May 23, 2024</span>
+          <span class="event-date-badge"><i class="ti ti-calendar"></i>May 23, 2024</span>
           <span class="event-title">Barangay San Antonio</span>
         </div>
         <div class="photo-grid">
@@ -254,7 +130,7 @@
 
       <div class="event-block">
         <div class="event-header">
-          <span class="event-date-badge"><i class="ti ti-calendar"></i> May 28, 2024</span>
+          <span class="event-date-badge"><i class="ti ti-calendar"></i>May 28, 2024</span>
           <span class="event-title">Barangay Tanawan</span>
         </div>
         <div class="photo-grid">
@@ -265,19 +141,19 @@
       </div>
     </div>
 
+  </div><!-- end page-body -->
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()"><i class="ti ti-x"></i></button>
+    <img id="lightbox-img" src="" alt="Full photo" onclick="event.stopPropagation()" />
   </div>
 
   <footer class="footer">
     © 2024 Municipal Civil Registrar, Capalonga, Camarines Norte<br>
     <a href="https://mcrocapalonga.github.io/info/">mcrocapalonga.github.io</a>
   </footer>
-</div>
 
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <button class="lightbox-close" onclick="closeLightbox()"><i class="ti ti-x"></i></button>
-  <img id="lightbox-img" src="" alt="Full photo" />
 </div>
-
 <script>
   function toggleNav() { document.getElementById('mobileNav').classList.toggle('open'); }
   function openLightbox(img) {
